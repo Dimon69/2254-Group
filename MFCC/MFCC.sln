@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFCC", "MFCC\MFCC.csproj", "{303560C7-633A-4757-AC4C-4C6B5A77DABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestsForMFCC", "UnitTestsForMFCC\UnitTestsForMFCC.csproj", "{5C0E8E51-D5E3-4EEC-A693-EDD1EEC19753}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{303560C7-633A-4757-AC4C-4C6B5A77DABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303560C7-633A-4757-AC4C-4C6B5A77DABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303560C7-633A-4757-AC4C-4C6B5A77DABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303560C7-633A-4757-AC4C-4C6B5A77DABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0E8E51-D5E3-4EEC-A693-EDD1EEC19753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0E8E51-D5E3-4EEC-A693-EDD1EEC19753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0E8E51-D5E3-4EEC-A693-EDD1EEC19753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0E8E51-D5E3-4EEC-A693-EDD1EEC19753}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E87F65C9-61F0-4551-8287-23F2B1426C99}
+	EndGlobalSection
+EndGlobal
