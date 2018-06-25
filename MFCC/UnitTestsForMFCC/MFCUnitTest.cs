@@ -79,6 +79,17 @@ namespace UnitTestsForMFCC
         [TestMethod]
         public void HammingTest()
         {
+            MainForm HammingTest = new MainForm();
+
+            double[] array = new double[20];
+            double[] array_1 = new double[20];
+
+            for (int j = 0; j < array.Length; j++)
+            {
+                array[j] = Hamming(j, 19); // Прогон элементов через заведомо верный метод
+                array_1[j] = HammingTest.HammingWindow(j); //Прогон элементов через тестируемый метод
+            }
+            Assert.AreEqual(array[3], array_1[3], "Существенная разница"); // Сравнение 3-го эл-та правильного и тестируемого значения
         }
         /// <summary>
         /// Здесь должно быть тестирование правильности вычислениф быстрого преобразования Фурье в MainForm
@@ -89,23 +100,39 @@ namespace UnitTestsForMFCC
         [TestMethod]
         public void FFTTest()
         {
-
+            // Создание объекта класса FFT
             FFT fft = new FFT();
 
             // Будем преобразовывать массивы длиной 2^9 = 512
             int N = 512;
-            Complex []sin = new Complex[N];
-            
-            double a = 2; // Частота 
-            for (int i = 0; i < 512; i++)
-                sin[i].X = (float)Math.Sin(i*2*a*Math.PI/N);
-            
-            // Прямое преобразование
-            fft.Fft(9, sin);
-            // Обратное преобразование
-            fft.Fft(9, sin, true);
+            Complex[] rightfft = new Complex[N];          
 
+            for (int i = 0; i < N; i++)
+            {
+                rightfft[i] = new Complex { X =  1, Y = 0 /*(float)(1 + Math.Sin(2 * Math.PI * 5 * i / N)) */ };
+            }
+
+            // Прямое преобразование
+            fft.Fft(9, rightfft);
+
+            // Получение модуля
+            double f = Math.Sqrt(Math.Pow(rightfft[2].X, 2) + Math.Pow(rightfft[2].Y, 2)); 
             
+            // Обратное преобразование
+            fft.Fft(9, rightfft, true);
+
+            MainForm testFFT = new MainForm();
+            double[] test_array = new double[N];
+            for (int i = 0; i < N; i++)
+            {
+                test_array[i] = 1;
+            }
+            testFFT.FFT(test_array);
+
+            //Получение модуля от тестируемого метода (Да, FFT возвращает уже модуль, но это для проверки)
+            double k = Math.Sqrt(Math.Pow(test_array[5], 2) + Math.Pow(0, 2));
+
+            Assert.AreEqual(f, k, "Данные различаются");
         }
     }
 }
